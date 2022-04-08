@@ -24,11 +24,12 @@ const logout = () => {
                     <router-link to="/user">GET API</router-link>
                 </li>
                 <li>
-                     <router-link to="/login" v-if="user?.email === 'dika@dika.com'">logout</router-link>
-                    <router-link to="/login" v-else>login</router-link>
-                </li>
-                <li>
                     <router-link to="/todo">todo</router-link>
+                </li>
+                <li>    
+                    <button class="mt-4 btn btn-danger" @click="logout"  v-if="user?.email === 'dika@dika.com'">Logout</button>
+                    <router-link to="/login" v-else>login</router-link>
+                
                 </li>
             </ul>
         </div>
