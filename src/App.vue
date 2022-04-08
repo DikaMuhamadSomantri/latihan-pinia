@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import { useAuthStore } from '@/stores/login';
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+const auth = useAuthStore();
+const { user } = storeToRefs(auth);
+const router = useRouter();
+const logout = () => {
+  auth.logout();
+  router.push('/');
+};
+</script>
 <template>  
  
 <div id="wrapper">
@@ -12,7 +24,8 @@
                     <router-link to="/user">GET API</router-link>
                 </li>
                 <li>
-                    <router-link to="/login">login</router-link>
+                    <router-link to="/" v-if="user?.email === 'dika@dika.com'">logout</router-link>
+                    <router-link to="/login" v-else>login</router-link>
                 </li>
                 <li>
                     <router-link to="/todo">todo</router-link>
