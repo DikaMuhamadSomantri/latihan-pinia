@@ -24,7 +24,7 @@ const logout = () => {
                     <router-link to="/user">GET API</router-link>
                 </li>
                 <li>
-                    <router-link to="/" v-if="user?.email === 'dika@dika.com'">logout</router-link>
+                     <router-link to="/login" v-if="user?.email === 'dika@dika.com'">logout</router-link>
                     <router-link to="/login" v-else>login</router-link>
                 </li>
                 <li>
